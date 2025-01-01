@@ -1,1 +1,2 @@
+# blog
 # manxeguin.github.io
