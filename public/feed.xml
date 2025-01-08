@@ -4,15 +4,13 @@
         <description><![CDATA[Your Name]]></description>
         <link>https://yoursite.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 01 Jan 2025 19:34:30 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 08 Jan 2025 22:06:00 GMT</lastBuildDate>
         <atom:link href="https://yoursite.com/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Vertical Micro Frontends with NextJS]]></title>
             <description><![CDATA[A simple way to route traffic to different NextJS applications.]]></description>
             <link>/posts/nextjs-vertical-microfrontends</link>
             <guid isPermaLink="true">/posts/nextjs-vertical-microfrontends</guid>
-            <category><![CDATA[frontend]]></category>
-            <category><![CDATA[microfrontend]]></category>
             <pubDate>Thu, 29 Aug 2024 22:00:00 GMT</pubDate>
         </item>
         <item>
@@ -20,8 +18,6 @@
             <description><![CDATA[My personal take about distributed frontend development.]]></description>
             <link>/posts/microfrontends-are-hard</link>
             <guid isPermaLink="true">/posts/microfrontends-are-hard</guid>
-            <category><![CDATA[frontend]]></category>
-            <category><![CDATA[microfrontend]]></category>
             <pubDate>Mon, 29 Jul 2024 22:00:00 GMT</pubDate>
         </item>
     </channel>

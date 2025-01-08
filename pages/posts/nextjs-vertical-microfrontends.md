@@ -2,7 +2,6 @@
 title: Vertical Micro Frontends with NextJS
 date: 2024/8/30
 description: A simple way to route traffic to different NextJS applications.
-tag: frontend, microfrontend
 author:
 ---
 # Vertical Micro Frontends with NextJS
