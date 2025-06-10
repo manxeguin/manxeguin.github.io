@@ -4,9 +4,10 @@ date: 2024/7/30
 description: My personal take about distributed frontend development.
 author:
 ---
+
 ## Intro
 
-In today's fast-paced tech world, managing large-scale web applications can be daunting. With multiple engineering teams working on different parts of an application, ensuring smooth development and deployment becomes critical. In this post, I’ll share my experiences and insights on tackling these challenges.
+In today’s fast-paced tech world, managing large-scale web applications can be a real challenge. With multiple engineering teams working on different parts of the app, keeping development and deployment running smoothly becomes super important. In this post, I’ll share some of my experiences and thoughts on how to deal with those challenges.
 
 ### A bit of context and experience
 
