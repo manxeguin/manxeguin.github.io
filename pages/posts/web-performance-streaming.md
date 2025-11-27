@@ -1,31 +1,30 @@
----
-title: Web Performance and Streaming
+title: Web performance and streaming in real apps
 date: 2025/2/28
-description: The impact of streaming on web performance.
+description: How streaming changes real-world web performance.
 author:
 ---
 
-## 🚀 Why Web Performance matters
+## 🚀 why web performance matters
 
-Let’s start with a quick note about performance. Websites today need to be fast, because users expect it. If your site is slow, people leave. And when people leave, they don’t buy, they don’t sign up, and they don’t come back.
+Let’s start with a quick note about performance. Websites today need to be fast because users expect it. If your site is slow, people leave. When people leave, they don’t buy, they don’t sign up, and they don’t come back.
 
 Google tracks a few main metrics: **LCP** (how fast the main content shows), **INP** (how fast the site responds to interaction), and **CLS** (does stuff move around during load?).
 
-Now, let me give you a small personal take on **LCP**. Honestly, I don’t think it’s always a good metric.
+Now, let me give you a small personal take on **LCP**. I don’t think it’s always a good metric.
 
 Why? Because **Google picks what it thinks is the “main” element on the screen**, and sometimes it gets it wrong. Imagine you have a web app that shows financial data, and at the top you have a big title that says **“Earning Reports”**, but the actual report with the real content takes 3 seconds to load. Google might track the title as the LCP — and tell you the page is fast — even though the part your users care about (the report) is still not there.
 
-So yeah, LCP is helpful in many cases, but don’t blindly trust it. Always check what it’s measuring and ask yourself: _is this really what matters for my users?_
+So yes, LCP is helpful in many cases, but don’t blindly trust it. Always check what it’s measuring and ask yourself: _is this really what matters for my users?_
 
-That’s where techniques like **streaming** can really help — they can let you show the real content faster, not just some heading or placeholder.
+That’s where techniques like **streaming** can really help; they can let you show the real content faster, not just some heading or placeholder.
 
 ---
 
-## 🌊 Let’s Talk About Streaming
+## 🌊 let’s talk about streaming
 
-Now, let’s talk about **streaming**. Maybe you've seen it in frameworks like **Next.js**, where you can stream parts of a React app. But actually, this idea has been around for a long time—way before React existed.
+Now, let’s talk about **streaming**. Maybe you've seen it in frameworks like **Next.js**, where you can stream parts of a React app. This idea has been around for a long time; way before React existed.
 
-### A bit of history: Facebook’s BigPipe
+### Some history: Facebook’s BigPipe
 
 Back in 2009, Facebook built a framework called **BigPipe**. It was a system to split a page into smaller chunks ("pagelets") and send them to the browser as soon as they were ready. So instead of waiting for the whole page to be built, users could see parts of it appear earlier.
 
@@ -33,7 +32,7 @@ BigPipe helped Facebook load complex pages faster, especially with dynamic conte
 
 ### Another real-world example: Instagram
 
-Streaming is still super relevant. In [this Instagram engineering blog post](https://instagram-engineering.com/making-instagram-com-faster-part-2-f350c8fba0d4), the team explains how they send the `<head>` of the document and styles early while they are generating the API data and streaming it using HTML `<script>` tags.
+Streaming is still very relevant. In [this Instagram engineering blog post](https://instagram-engineering.com/making-instagram-com-faster-part-2-f350c8fba0d4), the team explains how they send the `<head>` of the document and styles early while they are generating the API data and streaming it using HTML `<script>` tags.
 
 They didn’t use fancy frameworks for that, the solution was implemented on top of `StreamingHttpResponse` from Django (Python). It shows how powerful this approach can be, showing a **23% latency improvement**.
 
@@ -56,11 +55,11 @@ Each chunk represents the result of the rendered RSC.
 
 ---
 
-## ☕ Streaming in Java
+## ☕ streaming in Java
 
 Let’s create a simple example using Java with the Quarkus framework.
 
-(Note: I’m not a Java expert — I just picked it because I’ve used it in a previous job and it’s still widely used in many companies.)
+(Note: I’m not a Java expert. I picked it because I’ve used it in a previous job and it’s still widely used in many companies.)
 
 Just like in the Instagram example, we want to start sending the HTML early while we work on some server data. To do that, we can stream the response in two parts:
 
@@ -146,11 +145,11 @@ export const useFetch = (url: string) => {
 
 [Here is a link to the full code example](https://github.com/manxeguin/quarkus-streaming-demo)
 
-## 🔍 Comparing Normal vs Streaming in Action
+## 🔍 comparing normal vs streaming in action
 
 Let’s see what this looks like in practice. If you open DevTools and compare a normal page load vs a streaming page, you’ll notice a clear difference in how the browser handles the work.
 
-### 🐢 Without Streaming
+### 🐢 without streaming
 
 ![Diagram](../../images/client_side_fetch.png)
 
@@ -162,7 +161,7 @@ In this example, everything happens one step at a time:
 
 It’s all sequential — which slows things down.
 
-### ⚡ With Streaming
+### ⚡ with streaming
 
 ![Diagram](../../images/streaming_fetching.png)
 
@@ -171,20 +170,20 @@ With streaming, we start sending the HTML right away. That allows:
 - The browser to start downloading and parsing JavaScript early
 - The API request to be kicked off in parallel
 
-So instead of waiting for one thing to finish before starting the next, we overlap work — and that saves time.
+So instead of waiting for one thing to finish before starting the next, we overlap work, and that saves time.
 
 Even if the backend takes the same amount of time to generate data, users see the page **much faster**.
 
 ---
 
-## ✅ Pros and ❌ Cons
+## ✅ pros and ❌ cons
 
-### ✅ Pros
+### ✅ pros
 
 - Critical resources (CSS, JS, etc.) can start downloading while the backend is still working — users see content faster and get a smoother experience
 - Works in any language or framework that lets you control the response stream (Java, PHP, Go, etc.)
 
-### ❌ Cons
+### ❌ cons
 
 - The **DOMContentLoaded** event doesn’t fire until the full HTML is received — so if you use JS libraries that wait for it, they might be delayed (careful with deferred scripts)
 - Some **infrastructure doesn’t support streaming well**, like **AWS API Gateway**, which buffers the full response before sending it (and others might behave the same)
@@ -193,9 +192,9 @@ Even if the backend takes the same amount of time to generate data, users see th
 
 ---
 
-## Wrap up
+## wrap up
 
-Streaming is not new. It’s not a fancy React-only thing. It’s been around since **HTTP 1.1**, and it's still useful today.
+Streaming is not new. It’s not a fancy React-only thing. It has been around since **HTTP 1.1**, and it is still useful today.
 
 You can use it in Java. You can use it without frameworks. And you can use it to improve the real experience users have with your site.
 
