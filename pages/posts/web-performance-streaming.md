@@ -1,3 +1,4 @@
+---
 title: Web performance and streaming in real apps
 date: 2025/2/28
 description: How streaming changes real-world web performance.

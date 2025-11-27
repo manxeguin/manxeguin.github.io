@@ -1,3 +1,4 @@
+---
 title: Self-host Next.js on AWS in a serverless way
 date: 2025/4/28
 description: A demo of how to deploy Next.js apps on AWS using CDK and serverless infrastructure.

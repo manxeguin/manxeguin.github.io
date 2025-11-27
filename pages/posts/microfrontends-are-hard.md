@@ -1,3 +1,4 @@
+---
 title: Micro frontends are hard: lessons from distributed frontend teams
 date: 2024/7/30
 description: Lessons learned from distributed frontend teams and micro frontends.

@@ -1,3 +1,4 @@
+---
 title: Vertical micro frontends with Next.js on AWS
 date: 2024/8/30
 description: A simple way to route traffic to different Next.js applications using AWS.
